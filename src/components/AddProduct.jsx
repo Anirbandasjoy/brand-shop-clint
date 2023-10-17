@@ -55,7 +55,6 @@ const AddProduct = () => {
                                 <option value="laptop">Apple</option>
                                 <option value="android">Samsung</option>
                                 <option value="iPhone">Sony</option>
-                                <option value="Google">Google</option>
                                 <option value="Sony">Intel</option>
                                 <option value="Sony">LG</option>
                                 <option value="Sony">Microsoft</option>
