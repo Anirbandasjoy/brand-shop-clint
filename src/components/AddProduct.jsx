@@ -19,8 +19,9 @@ const AddProduct = () => {
         const price = form.price.value;
         const rating = form.rating.value;
         const image = form.image.value;
+        const brand = form.brand.value;
         const description = form.description.value;
-        const product = { name, price, rating, image, description, category: selectedCategory }
+        const product = { name, brand, price, rating, image, description, category: selectedCategory }
         console.log(product)
 
         try {
@@ -45,9 +46,15 @@ const AddProduct = () => {
             <div className=" mt-10">
                 <form className="mx-auto space-y-4" onSubmit={handleSubmit}>
                     <div className="flex flex-col md:flex-row w-full px-5 md:px-0 md:w-4/6  mx-auto md:gap-5 gap-2">
-                        <div className="  space-y-1 w-full ">
-                            <label className="text-gray-400" htmlFor="name">Name </label>
+
+
+                        <div className=" space-y-1 w-full ">
+                            <label className="text-gray-400" htmlFor="name">Product Name </label>
                             <input className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="name" id="name" placeholder="Enter Product name" required />
+                        </div>
+                        <div className=" space-y-1 w-full ">
+                            <label className="text-gray-400" htmlFor="image">Brand Name </label>
+                            <input className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="brand" id="brand" placeholder="Enter Brand name" required />
                         </div>
                         <div className=" space-y-1 w-full ">
                             <label className="text-gray-400" htmlFor="price">Price </label>
@@ -59,13 +66,16 @@ const AddProduct = () => {
                         <div>
                             <label className="text-gray-400 " htmlFor="price">Category </label>
                             <select className="outline-none mt-1 border-gray-300 border-2 py-2 px-2 w-full" id="itemDropdown" value={selectedCategory} onChange={handleItemSelect}>
-                                <option value="Apple">Apple</option>
-                                <option value="Samsung">Samsung</option>
-                                <option value="Sony">Sony</option>
-                                <option value="Intel">Intel</option>
-                                <option value="LG">LG</option>
-                                <option value="Microsoft">Microsoft</option>
-                                <option value="Acer">Acer</option>
+                                <option value="Smartphones">Smartphones</option>
+                                <option value="Leptops">Leptops</option>
+                                <option value="Desktop_Computers">Desktop_Computers</option>
+                                <option value="Tablets">Tablets</option>
+                                <option value="Televisions">Televisions</option>
+                                <option value="Headphones">Headphones</option>
+                                <option value="Digital_Cameras">Digital_Cameras
+                                </option>
+                                <option value="Printers">Printers</option>
+                                <option value="Drones">Drones</option>
                             </select>
                         </div>
                         <div className=" space-y-1 w-full ">
