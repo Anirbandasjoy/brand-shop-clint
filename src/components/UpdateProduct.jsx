@@ -1,17 +1,16 @@
 
-// import axios from "axios";
+
+import axios from "axios";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { useLocation } from "react-router-dom";
-// import toast from "react-hot-toast";
+
 
 const UpdateProduct = () => {
     const { state } = useLocation()
-
-
     const [selectedCategory, setSelectedCategory] = useState(state.brand);
-    const handleItemSelect = (event) => {
-        setSelectedCategory(event.target.value);
-
+    const handleItemSelect = (e) => {
+        setSelectedCategory(e.target.value);
     };
 
     const handleSubmit = async (e) => {
@@ -26,14 +25,16 @@ const UpdateProduct = () => {
         const product = { name, price, rating, image, description, brand: selectedCategory }
         console.log(product)
 
-        // try {
-        //     const { data } = await axios.post("http://localhost:5000/product", product)
-        //     if (data.insertedId) {
-        //         toast.success("Product Added Successfully")
-        //     }
-        // } catch (error) {
-        //     toast.error(error.message)
-        // }
+        try {
+            const { data } = await axios.put(`http://localhost:5000/product/${state._id}`, product)
+            console.log(data)
+            if (data.modifiedCount > 0) {
+                toast.success("Product Updated Successfully")
+            }
+        } catch (error) {
+            toast.error(error.message)
+            console.log(error)
+        }
     }
     return (
         <div className="mt-5">

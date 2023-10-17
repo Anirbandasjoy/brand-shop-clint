@@ -50,7 +50,7 @@ const Products = () => {
                                     <span className="text-3xl font-bold text-gray-900 ">${product.price}</span>
                                     <div className="space-x-1">
                                         <Link state={product} to={`/update-product/${product._id}`} className="text-white  bg-primary rounded-sm hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-5 py-2.5 text-center ">Update</Link>
-                                        <Link className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center ">Details</Link>
+                                        <Link to={`/product-details/${product._id}`} state={product} className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center ">Details</Link>
                                     </div>
                                 </div>
                             </div>

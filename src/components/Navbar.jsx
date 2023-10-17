@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import logo from '../assets/logo.png'
 const Navbar = () => {
     const navitems = <>
-        <li className="font-semibold"><Link to="/">Home</Link></li>
-        <li><Link className="font-semibold" to="/add-product">Add-product</Link></li>
+        <li className="font-semibold"><NavLink to="/">Home</NavLink></li>
+        <li><NavLink className="font-semibold" to="/add-product">Add-product</NavLink></li>
     </>
     return (
         <div>
