@@ -1,12 +1,12 @@
 
+import axios from "axios";
 import { useState } from "react";
-import { AiOutlineDoubleLeft } from "react-icons/ai"
-import { Link } from "react-router-dom";
+
 
 
 
 const AddProduct = () => {
-    const [selectedCategory, setSelectedCategory] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState("Apple");
     const handleItemSelect = (event) => {
         setSelectedCategory(event.target.value);
 
@@ -20,16 +20,23 @@ const AddProduct = () => {
         const rating = form.rating.value;
         const image = form.image.value;
         const description = form.description.value;
-        const category = selectedCategory;
-        console.log(name, price, rating, image, description, category)
+        const product = { name, price, rating, image, description, category: selectedCategory }
+        console.log(product)
+
+        try {
+            const { data } = await axios.post("http://localhost:5000/product", product)
+            console.log(data)
+        } catch (error) {
+            console.log(error)
+        }
     }
     return (
         <div className="mt-5">
             <div className="w-4/6 mx-auto  text-purple-500 font-semibold">
-                <Link className="flex items-center gap-1" to="/services">
+                {/* <Link className="flex items-center gap-1" to="/services">
                     <AiOutlineDoubleLeft className="cursor-pointer" />
                     <h1 className="cursor-pointer">All Service</h1>
-                </Link>
+                </Link> */}
             </div>
             <div className="text-center space-y-1 ">
                 <h1 className="text-2xl">Add Product</h1>
@@ -52,13 +59,13 @@ const AddProduct = () => {
                         <div>
                             <label className="text-gray-400 " htmlFor="price">Category </label>
                             <select className="outline-none mt-1 border-gray-300 border-2 py-2 px-2 w-full" id="itemDropdown" value={selectedCategory} onChange={handleItemSelect}>
-                                <option value="laptop">Apple</option>
-                                <option value="android">Samsung</option>
-                                <option value="iPhone">Sony</option>
-                                <option value="Sony">Intel</option>
-                                <option value="Sony">LG</option>
-                                <option value="Sony">Microsoft</option>
-                                <option value="Sony">Acer</option>
+                                <option value="Apple">Apple</option>
+                                <option value="Samsung">Samsung</option>
+                                <option value="Sony">Sony</option>
+                                <option value="Intel">Intel</option>
+                                <option value="LG">LG</option>
+                                <option value="Microsoft">Microsoft</option>
+                                <option value="Acer">Acer</option>
                             </select>
                         </div>
                         <div className=" space-y-1 w-full ">
