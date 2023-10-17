@@ -1,10 +1,14 @@
 
-import axios from "axios";
+// import axios from "axios";
 import { useState } from "react";
-import toast from "react-hot-toast";
+import { useLocation } from "react-router-dom";
+// import toast from "react-hot-toast";
 
-const AddProduct = () => {
-    const [selectedCategory, setSelectedCategory] = useState("Apple");
+const UpdateProduct = () => {
+    const { state } = useLocation()
+
+
+    const [selectedCategory, setSelectedCategory] = useState(state.brand);
     const handleItemSelect = (event) => {
         setSelectedCategory(event.target.value);
 
@@ -22,14 +26,14 @@ const AddProduct = () => {
         const product = { name, price, rating, image, description, brand: selectedCategory }
         console.log(product)
 
-        try {
-            const { data } = await axios.post("http://localhost:5000/product", product)
-            if (data.insertedId) {
-                toast.success("Product Added Successfully")
-            }
-        } catch (error) {
-            toast.error(error.message)
-        }
+        // try {
+        //     const { data } = await axios.post("http://localhost:5000/product", product)
+        //     if (data.insertedId) {
+        //         toast.success("Product Added Successfully")
+        //     }
+        // } catch (error) {
+        //     toast.error(error.message)
+        // }
     }
     return (
         <div className="mt-5">
@@ -40,31 +44,31 @@ const AddProduct = () => {
                 </Link> */}
             </div>
             <div className="text-center space-y-1 ">
-                <h1 className="text-2xl">Add Product</h1>
-                <p className="text-gray-400 text-sm">Use the below form to create a new Product</p>
+                <h1 className="text-2xl">Update Product</h1>
+                <p className="text-gray-400 text-sm">Use the below form to Update a  Product</p>
             </div>
             <div className=" mt-10">
                 <form className="mx-auto space-y-4" onSubmit={handleSubmit}>
                     <div className="flex flex-col md:flex-row w-full px-5 md:px-0 md:w-4/6  mx-auto md:gap-5 gap-2">
                         <div className="  space-y-1 w-full ">
                             <label className="text-gray-400" htmlFor="name">Name </label>
-                            <input className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="name" id="name" placeholder="Enter Product name" required />
+                            <input defaultValue={state.name} className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="name" id="name" placeholder="Enter Product name" required />
                         </div>
                         <div className=" space-y-1 w-full ">
                             <label className="text-gray-400" htmlFor="price">Price </label>
-                            <input className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="price" id="price" placeholder="Enter Product $price" required />
+                            <input defaultValue={state.price} className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="price" id="price" placeholder="Enter Product $price" required />
                         </div>
 
-                        <div className=" space-y-1 w-full ">
+                        {/* <div className=" space-y-1 w-full ">
                             <label className="text-gray-400" htmlFor="price">Category </label>
                             <input className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="category" id="category" placeholder="Enter Product category" required />
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="flex flex-col md:flex-row w-full px-5 md:px-0 md:w-4/6  mx-auto md:gap-5 gap-2">
                         <div>
-                            <label className="text-gray-400 " htmlFor="price">Brand </label>
-                            <select className="outline-none mt-1 border-gray-300 border-2 py-2 px-2 w-full" id="itemDropdown" value={selectedCategory} onChange={handleItemSelect}>
+                            <label className="text-gray-400 " htmlFor="price">Brand</label>
+                            <select value={selectedCategory} className="outline-none mt-1 border-gray-300 border-2 py-2 px-2 w-full" id="itemDropdown" onChange={handleItemSelect}>
                                 <option value="Apple">Apple</option>
                                 <option value="Samsung">Samsung</option>
                                 <option value="Sony">Sony</option>
@@ -75,26 +79,26 @@ const AddProduct = () => {
                             </select>
                         </div>
                         <div className=" space-y-1 w-full ">
-                            <label className="text-gray-400" htmlFor="price">Rating </label>
-                            <input className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="rating" id="rating" placeholder="Enter Product Rating" required />
+                            <label className="text-gray-400" htmlFor="price" >Rating </label>
+                            <input defaultValue={state.rating} className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="rating" id="rating" placeholder="Enter Product Rating" required />
                         </div>
                     </div>
 
                     <div className="md:w-4/6 w-full px-5 md:px-0 mx-auto space-y-1  ">
                         <label className="text-gray-400" htmlFor="image">Image </label>
-                        <input className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="image" id="image" placeholder="Enter Product Image Url" required />
+                        <input defaultValue={state.image} className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="image" id="image" placeholder="Enter Product Image Url" required />
                     </div>
 
                     <div className="md:w-4/6 w-full px-5 md:px-0  mx-auto space-y-1  flex flex-col">
                         <label className="text-gray-400" htmlFor="image">Description </label>
-                        <textarea name="description" id="description" className="textarea textarea-bordered" placeholder="Product desc..."></textarea>
+                        <textarea defaultValue={state.description} name="description" id="description" className="textarea textarea-bordered" placeholder="Product desc..."></textarea>
                     </div>
 
 
 
                     <div className="md:w-4/6 w-full px-5 md:px-0  mx-auto ">
 
-                        <button className="btn w-full hover:text-gray-900 mt-5 capitalize text-gray-700 bg-green-300">Save</button>
+                        <button className="btn w-full hover:text-gray-900 mt-5 capitalize text-gray-700 bg-green-300">Update</button>
                     </div>
                 </form>
             </div>
@@ -102,4 +106,4 @@ const AddProduct = () => {
     )
 }
 
-export default AddProduct
+export default UpdateProduct
