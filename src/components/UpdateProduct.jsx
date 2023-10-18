@@ -33,8 +33,10 @@ const UpdateProduct = () => {
             }
         } catch (error) {
             toast.error(error.message)
-            console.log(error)
+
         }
+
+
     }
     return (
         <div className="mt-5">

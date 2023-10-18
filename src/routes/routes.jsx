@@ -6,6 +6,8 @@ import Products from "../components/Products";
 import UpdateProduct from "../components/UpdateProduct";
 import ProductDetails from "../components/ProductDetails";
 import Cart from "../components/Cart";
+import axios from "axios";
+
 
 export const router = createBrowserRouter([
     {
@@ -34,8 +36,10 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/cart",
-                element: <Cart />
-            }
+                element: <Cart />,
+                loader: () => axios.get("http://localhost:5000/order")
+            },
+
         ]
     }
 ])
