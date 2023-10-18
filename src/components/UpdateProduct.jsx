@@ -21,8 +21,8 @@ const UpdateProduct = () => {
         const rating = form.rating.value;
         const image = form.image.value;
         const description = form.description.value;
-        // const category = form.category.value;
-        const product = { name, price, rating, image, description, brand: selectedCategory }
+        const category = form.category.value;
+        const product = { name, price, category, rating, image, description, brand: selectedCategory }
         console.log(product)
 
         try {
@@ -39,10 +39,7 @@ const UpdateProduct = () => {
     return (
         <div className="mt-5">
             <div className="w-4/6 mx-auto  text-purple-500 font-semibold">
-                {/* <Link className="flex items-center gap-1" to="/services">
-                    <AiOutlineDoubleLeft className="cursor-pointer" />
-                    <h1 className="cursor-pointer">All Service</h1>
-                </Link> */}
+
             </div>
             <div className="text-center space-y-1 ">
                 <h1 className="text-2xl">Update Product</h1>
@@ -60,10 +57,10 @@ const UpdateProduct = () => {
                             <input defaultValue={state.price} className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="price" id="price" placeholder="Enter Product $price" required />
                         </div>
 
-                        {/* <div className=" space-y-1 w-full ">
+                        <div className=" space-y-1 w-full ">
                             <label className="text-gray-400" htmlFor="price">Category </label>
-                            <input className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="category" id="category" placeholder="Enter Product category" required />
-                        </div> */}
+                            <input defaultValue={state.category} className="outline-none border-gray-300 border-2 py-2 px-2 w-full" type="text" name="category" id="category" placeholder="Enter Product category" required />
+                        </div>
                     </div>
 
                     <div className="flex flex-col md:flex-row w-full px-5 md:px-0 md:w-4/6  mx-auto md:gap-5 gap-2">

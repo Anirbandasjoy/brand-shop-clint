@@ -31,13 +31,13 @@ const Banner = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <img className='h-[44rem] w-full' src={image1} />
+                    <img className='h-full w-full' src={image1} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='h-[44rem] w-full' src={image2} />
+                    <img className='h-full w-full' src={image2} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='h-[44rem] w-full' src={image3} />
+                    <img className='h-full w-full' src={image3} />
                 </SwiperSlide>
 
             </Swiper>

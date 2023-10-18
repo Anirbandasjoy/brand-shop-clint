@@ -21,7 +21,7 @@ const Products = () => {
     }, [])
     console.log(products)
     return (
-        <div className="h-screen ">
+        <div className="mb-12 lg:h-screen">
             <div className="grid container mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     products.map((product) => {
@@ -33,7 +33,7 @@ const Products = () => {
                                 <Link>
                                     <div className="flex  gap-2 ">
                                         <h5 className="text-2xl font-semibold tracking-tight text-gray-900 ">{product.name}</h5>
-                                        <h4 className="text-xs font-semibold bg-primary h-fit text-white p-0.5 px-1 rounded-sm ">Electronics</h4>
+                                        <h4 className="text-xs font-semibold bg-primary h-fit text-white p-0.5 px-1 rounded-sm ">{product.category}</h4>
                                     </div>
                                     <div className="badge badge-primary rounded-sm">{product.brand}</div>
                                 </Link>

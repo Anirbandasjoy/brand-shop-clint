@@ -18,8 +18,8 @@ const AddProduct = () => {
         const rating = form.rating.value;
         const image = form.image.value;
         const description = form.description.value;
-        // const category = form.category.value;
-        const product = { name, price, rating, image, description, brand: selectedCategory }
+        const category = form.category.value;
+        const product = { name, category, price, rating, image, description, brand: selectedCategory }
         console.log(product)
 
         try {
@@ -34,10 +34,7 @@ const AddProduct = () => {
     return (
         <div className="mt-5">
             <div className="w-4/6 mx-auto  text-purple-500 font-semibold">
-                {/* <Link className="flex items-center gap-1" to="/services">
-                    <AiOutlineDoubleLeft className="cursor-pointer" />
-                    <h1 className="cursor-pointer">All Service</h1>
-                </Link> */}
+
             </div>
             <div className="text-center space-y-1 ">
                 <h1 className="text-2xl">Add Product</h1>

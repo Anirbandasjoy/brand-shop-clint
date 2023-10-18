@@ -3,8 +3,20 @@ import { SiBrandfolder } from 'react-icons/si';
 import { BsCurrencyDollar } from 'react-icons/bs';
 import Rating from 'react-rating';
 import { useLocation } from 'react-router-dom'
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const ProductDetails = () => {
+    const handleOrder = async () => {
+        try {
+            const { data } = await axios.post("http://localhost:5000/order", state)
+            if (data.insertedId) {
+                toast.success("Added Successfully")
+            }
+        } catch (error) {
+            toast.error(error.message)
+        }
+    }
     const { state } = useLocation();
     return (
         <div className='flex flex-col gap-4 lg:flex-row justify-center container mx-auto'>
@@ -40,7 +52,7 @@ const ProductDetails = () => {
                         <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded  ml-3">{state.rating}</span>
                     </div>
                 </div>
-                <button className='w-full font-semibold  bottom-0 absolute p-3 text-white hover:bg-red-400 bg-red-300'>Add to Cart</button>
+                <button onClick={handleOrder} className='w-full font-semibold  bottom-0 absolute p-3 text-white hover:bg-red-400 bg-red-300'>Add to Cart</button>
             </div>
         </div>
     )
