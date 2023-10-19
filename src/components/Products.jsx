@@ -4,12 +4,27 @@ import Rating from "react-rating"
 import { Link, useLocation } from "react-router-dom"
 import { AiOutlineStar, AiTwotoneStar } from 'react-icons/ai'
 
+
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+
+// import required modules
+import { EffectFade, Navigation, Pagination } from 'swiper/modules';
+
 const Products = () => {
     const [products, setProducts] = useState([])
     const { state } = useLocation();
+    console.log(state)
     const fetchData = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:5000/product/${state}`)
+            const { data } = await axios.get(`http://localhost:5000/product/${state.name}`)
             setProducts(data)
         } catch (error) {
             console.log(error)
@@ -20,7 +35,34 @@ const Products = () => {
     }, [])
 
     return (
-        <div className="mt-10 lg:h-screen">
+        <div className="lg:h-screen">
+
+            {/* banner start  */}
+
+            <div className="mb-10">
+                <Swiper
+                    spaceBetween={30}
+                    effect={'fade'}
+                    navigation={true}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    modules={[EffectFade, Navigation, Pagination]}
+                    className="mySwiper"
+                >
+                    <SwiperSlide>
+                        <img className='h-[32rem] w-full' src={state.image1} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img className='h-[32rem] w-full' src={state.image2} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img className='h-[32rem] w-full' src={state.image3} />
+                    </SwiperSlide>
+
+                </Swiper>
+            </div>
+            {/* banner end */}
             <div className="grid container mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     products.map((product) => {

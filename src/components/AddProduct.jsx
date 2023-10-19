@@ -37,7 +37,7 @@ const AddProduct = () => {
 
             </div>
             <div className="text-center space-y-1 ">
-                <h1 className="text-2xl">Add Product</h1>
+                <h1 className="text-2xl dark:text-white">Add Product</h1>
                 <p className="text-gray-400 text-sm">Use the below form to create a new Product</p>
             </div>
             <div className=" mt-10">

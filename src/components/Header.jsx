@@ -1,21 +1,23 @@
 
 import { useContext } from 'react'
-import { AiFillTwitterCircle, AiFillLinkedin, AiOutlineInstagram, AiOutlineClockCircle } from 'react-icons/ai'
+import { AiFillTwitterCircle, AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai'
 import { BsFacebook, BsTelephoneForward } from 'react-icons/bs'
 import { HiOutlineMail } from 'react-icons/hi'
 import { CgProfile } from 'react-icons/cg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthProvider'
 import toast from 'react-hot-toast'
 
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handleLogOut = () => {
         logOut()
             .then(() => {
                 toast.success("Logout Successfully")
+                navigate("/login")
             })
             .catch(err => console.log(err.message))
     }
@@ -32,10 +34,7 @@ const Header = () => {
                         <HiOutlineMail />
                         <li>adj@gmail.com</li>
                     </div>
-                    <div className='flex items-center gap-2'>
-                        <AiOutlineClockCircle />
-                        <li> Sut – Fri 9.00 am – 6.00 pm</li>
-                    </div>
+
 
                     {
                         user && <div className='flex items-center gap-2'>

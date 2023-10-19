@@ -27,6 +27,10 @@ const ProductDetails = () => {
 
     return (
         <div className='py-5 h-screen'>
+
+
+
+
             <div className='flex flex-col gap-4 lg:flex-row justify-center container mx-auto'>
                 <div className='flex-1 '>
                     <img src={state.image} alt={state.name} />

@@ -32,8 +32,8 @@ const Register = () => {
         }),
 
         onSubmit: (values) => {
-
             const { email, password, name, image } = values;
+            console.log(image)
             setRegisterError("")
 
             registerUser(email, password)

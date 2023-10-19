@@ -50,7 +50,7 @@ const Category = () => {
                     categoryData.map((category, idx) => {
                         return <div key={idx}>
                             <SwiperSlide key={category._id}>
-                                <Link state={category.name} to={`/brand/${category.name}`} className="bg-[#e6f3ff] block rounded-full p-6 text-center">
+                                <Link state={category} to={`/brand/${category.name}`} className="bg-[#e6f3ff] block rounded-full p-6 text-center">
                                     <img className="h-44 shadow-lg mx-auto cursor-pointer rounded-md" src={category.image} alt={category.name} />
                                 </Link>
                                 <h1 className="text-center mt-2 text-xl font-semibold text-blue-400">{category.name}</h1>

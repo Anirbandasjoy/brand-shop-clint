@@ -42,7 +42,7 @@ const UpdateProduct = () => {
 
             </div>
             <div className="text-center space-y-1 ">
-                <h1 className="text-2xl">Update Product</h1>
+                <h1 className="text-2xl dark:text-white">Update Product</h1>
                 <p className="text-gray-400 text-sm">Use the below form to Update a  Product</p>
             </div>
             <div className=" mt-10">
