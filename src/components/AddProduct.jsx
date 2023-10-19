@@ -30,6 +30,7 @@ const AddProduct = () => {
         } catch (error) {
             toast.error(error.message)
         }
+        form.reset()
     }
     return (
         <div className="py-5">

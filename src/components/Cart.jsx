@@ -36,6 +36,7 @@ const Cart = () => {
                             <thead>
                                 <tr className="font-semibold bg-gray-500 text-white">
 
+                                    <th>Image</th>
                                     <th>Price</th>
                                     <th>Name</th>
                                     <th>Action</th>
@@ -47,8 +48,12 @@ const Cart = () => {
                                     orderData.map((order) => {
                                         return <tr key={order._id} className="hover dark:hover:text-gray-700">
 
+                                            <td><img className="w-8 mx-auto" src={order.image} alt={order.name} /></td>
                                             <td>${order.price}</td>
-                                            <td>{order.name}</td>
+                                            <td>
+
+                                                <p>{order.name}</p>
+                                            </td>
                                             <td className="flex justify-center"><AiOutlineDelete onClick={() => handleDelete(order._id)} className="cursor-pointer" size={25} /></td>
                                         </tr>
                                     })
