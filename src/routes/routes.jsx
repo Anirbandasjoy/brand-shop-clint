@@ -9,6 +9,8 @@ import Cart from "../components/Cart";
 import axios from "axios";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
+import PribetRoute from "./PribetRoute";
+import PageNotFound from "../pages/PageNotFound";
 
 
 
@@ -17,6 +19,7 @@ export const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        errorElement: <PageNotFound />,
         children: [
             {
                 path: "/",
@@ -24,7 +27,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/add-product",
-                element: <AddProduct />
+                element: <PribetRoute><AddProduct /></PribetRoute>
             },
             {
                 path: "/brand/:name",
@@ -32,11 +35,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/update-product/:id",
-                element: <UpdateProduct />
+                element: <PribetRoute><UpdateProduct /></PribetRoute>
             },
             {
                 path: "/product-details/:id",
-                element: <ProductDetails />
+                element: <PribetRoute><ProductDetails /></PribetRoute>
             },
             {
                 path: "/cart",

@@ -7,6 +7,11 @@ import { AuthContext } from "../context/AuthProvider"
 
 // import userProfile from '../assets/user.png'
 const Navbar = () => {
+    const navitems = <>
+        <li className="font-semibold"><NavLink to="/">Home</NavLink></li>
+        <li><NavLink className="font-semibold" to="/add-product">Add-product</NavLink></li>
+    </>
+
 
     const hendeldark = () => {
         document.getElementById("main").classList.toggle("dark")
@@ -14,10 +19,6 @@ const Navbar = () => {
 
     const { user } = useContext(AuthContext)
 
-    const navitems = <>
-        <li className="font-semibold"><NavLink to="/">Home</NavLink></li>
-        <li><NavLink className="font-semibold" to="/add-product">Add-product</NavLink></li>
-    </>
 
 
     return (

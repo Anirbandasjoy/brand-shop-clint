@@ -26,26 +26,28 @@ const ProductDetails = () => {
     }
 
     return (
-        <div className='py-5 h-screen'>
-
-
-
-
-            <div className='flex flex-col gap-4 lg:flex-row justify-center container mx-auto'>
+        <div className='sm:pt-10 pt-5 lg:h-screen'>
+            {/* <div className=" px-5 mb-5 dark:text-white mx-auto  text-purple-500 font-semibold">
+                <Link className="flex items-center gap-1" to={`/brand/${brand}`}>
+                    <AiOutlineDoubleLeft className="cursor-pointer" />
+                    <h1 className="cursor-pointer">go back</h1>
+                </Link>
+            </div> */}
+            <div className='flex px-2 lg:px-0 flex-col gap-4 lg:flex-row justify-center container mx-auto'>
                 <div className='flex-1 '>
                     <img src={state.image} alt={state.name} />
                 </div>
-                <div className='flex-1 space-y-4 relative'>
+                <div className='flex-1 space-y-8 relative overflow-auto'>
                     <div className='flex gap-3 '>
-                        <h1 className='font-bold text-4xl text-gray-500'>{state.name}</h1>
-                        <span className='bg-red-300 h-fit px-2 rounded-md'>Electronic</span>
+                        <h1 className='font-bold text-xl  lg:text-4xl text-gray-500'>{state.name}</h1>
+                        <span className='bg-red-300 h-fit px-2 rounded-md'>{state.category}</span>
                     </div>
 
-                    <h5 className='text-gray-400 text-lg text-justify'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nisi quasi repellendus delectus exercitationem libero quibusdam quo nostrum hic, ab provident amet reprehenderit nemo asperiores officiis fuga in! Doloremque quos non sapiente sint! Aut obcaecati asperiores eum. Fugit dolore, in voluptatem tenetur, nobis ad provident qui tempore veniam ut ex, distinctio temporibus eius! Culpa ab voluptates repudiandae dignissimos temporibus! Nam, neque perspiciatis similique saepe veritatis at quasi officia iste fugiat distinctio hic magni earum ad vitae delectus nesciunt porro fuga dolorum impedit maiores optio. Repudiandae temporibus quae amet, officiis, corporis, a nam natus nemo nisi harum non et neque cumque.
+                    <h5 className='text-gray-400 text-xs lg:text-lg text-justify'>
+                        {state.description}
                     </h5>
-                    <div className='flex items-center justify-between flex-row-reverse'>
-                        <div className='flex items-center gap-2'>
+                    <div className='grid grid-cols-2 sm:grid-cols-3 justify-between sm:grid-rows-3'>
+                        <div className='flex  items-center gap-2'>
                             <BsCurrencyDollar className='text-2xl text-gray-400' size={30} />
                             <p className='text-2xl text-gray-400 font-semibold'> ${state.price}</p>
                         </div>
@@ -61,10 +63,10 @@ const ProductDetails = () => {
                                 emptySymbol={<AiOutlineStar size={20} />}
                                 fullSymbol={<AiTwotoneStar size={20} />}
                             />
-                            <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded  ml-3">{state.rating}</span>
+                            <span className="bg-blue-100 text-blue-800  text-xs font-semibold mr-2 px-2.5 py-0.5 rounded  ml-3">{state.rating}</span>
                         </div>
                     </div>
-                    <button onClick={handleOrder} className='w-full font-semibold  bottom-0 absolute p-3 text-white hover:bg-red-400 bg-red-300'>Add to Cart</button>
+                    <button onClick={handleOrder} className='w-full font-semibold  -bottom-20 sm:bottom-0 absolute p-3 text-white hover:bg-red-400 bg-red-300'>Add to Cart</button>
                 </div>
             </div>
         </div>

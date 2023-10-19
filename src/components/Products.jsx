@@ -21,7 +21,6 @@ import { EffectFade, Navigation, Pagination } from 'swiper/modules';
 const Products = () => {
     const [products, setProducts] = useState([])
     const { state } = useLocation();
-    console.log(state)
     const fetchData = async () => {
         try {
             const { data } = await axios.get(`http://localhost:5000/product/${state.name}`)
@@ -35,7 +34,7 @@ const Products = () => {
     }, [])
 
     return (
-        <div className="lg:h-screen">
+        <div className="pb-8">
 
             {/* banner start  */}
 
@@ -51,19 +50,19 @@ const Products = () => {
                     className="mySwiper"
                 >
                     <SwiperSlide>
-                        <img className='h-[32rem] w-full' src={state.image1} />
+                        <img className='lg:h-[32rem] h-full w-full' src={state.image1} />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img className='h-[32rem] w-full' src={state.image2} />
+                        <img className='lg:h-[32rem] h-full w-full' src={state.image2} />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img className='h-[32rem] w-full' src={state.image3} />
+                        <img className='lg:h-[32rem] h-full w-full' src={state.image3} />
                     </SwiperSlide>
 
                 </Swiper>
             </div>
             {/* banner end */}
-            <div className="grid container mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid px-2   lg:px-0 container mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     products.map((product) => {
                         return <div key={product._id} className="w-full  bg-white border border-gray-200 rounded-lg shadow ">

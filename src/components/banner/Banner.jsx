@@ -1,7 +1,7 @@
 
 import image1 from '../../assets/banner/1.jpg'
 import image2 from '../../assets/banner/2.jpg'
-import image3 from '../../assets/banner/3.jpg'
+// import image3 from '../../assets/banner/3.jpg'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -36,9 +36,9 @@ const Banner = () => {
                 <SwiperSlide>
                     <img className='h-full w-full' src={image2} />
                 </SwiperSlide>
-                <SwiperSlide>
-                    <img className='h-full w-full' src={image3} />
-                </SwiperSlide>
+                {/* <SwiperSlide>
+                    <img className=' h-full  w-full' src={image3} />
+                </SwiperSlide> */}
 
             </Swiper>
         </>
