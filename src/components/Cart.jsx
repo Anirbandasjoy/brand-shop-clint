@@ -1,23 +1,41 @@
+
+import axios from "axios";
 import { useState } from "react";
-import { FiDelete } from "react-icons/fi";
-import { BsPencilSquare } from "react-icons/bs";
-import { Link, useLoaderData } from "react-router-dom"
+import toast from "react-hot-toast";
+import { AiOutlineDelete } from 'react-icons/ai'
+import { useLoaderData } from "react-router-dom";
 
 const Cart = () => {
-    let count = 0
     const { data } = useLoaderData();
-    const [orderData, setOrderData] = useState(data)
-    console.log(orderData)
+    const [orderData, setOrderData] = useState(data);
+
+
+    const handleDelete = async (id) => {
+        console.log(id)
+        try {
+            const { data } = await axios.delete(`http://localhost:5000/order/${id}`)
+            if (data.deletedCount > 0) {
+                toast.success("Deleted Successfully")
+            }
+            const filterOrder = orderData.filter((data) => data._id !== id)
+            setOrderData(filterOrder)
+        } catch (error) {
+            console.log(error.message)
+            toast.error("Somthing rong")
+        }
+
+    }
+
     return (
-        <div className="lg:h-screen container mx-auto">
+        <div className="max-w-6xl mx-auto h-screen dark:text-white mt-5">
             <div className="overflow-x-auto">
-                <table className="table ">
+                <table className="table  text-center">
                     {/* head */}
-                    <thead className="bg-gray-500 text-white">
-                        <tr>
-                            <th>Count</th>
-                            <th>Name</th>
+                    <thead>
+                        <tr className="font-semibold bg-gray-500 text-white">
+
                             <th>Price</th>
+                            <th>Name</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -25,31 +43,20 @@ const Cart = () => {
 
                         {
                             orderData.map((order) => {
-                                return <tr key={order._id} className="hover">
-                                    <th>{count = count + 1}</th>
-                                    <td className="flex items-center gap-4">
-                                        <img src={order.image} className="w-8" alt={order.name} />
-                                        {order.name}
-                                    </td>
-                                    <td>${order.price}</td>
-                                    <td className="flex text-center items-center gap-5">
-                                        <Link to={`/update-product/${order._id}`} state={order}>
-                                            <BsPencilSquare className="cursor-pointer" size={25} />
-                                        </Link>
-                                        <FiDelete className="cursor-pointer" size={25} />
-                                    </td>
-                                </tr>
+                                return <tr key={order._id} className="hover dark:hover:text-gray-700">
 
+                                    <td>${order.price}</td>
+                                    <td>{order.name}</td>
+                                    <td className="flex justify-center"><AiOutlineDelete onClick={() => handleDelete(order._id)} className="cursor-pointer" size={25} /></td>
+                                </tr>
                             })
                         }
-
-
 
                     </tbody>
                 </table>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Cart
+export default Cart;

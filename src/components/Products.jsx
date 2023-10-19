@@ -10,7 +10,6 @@ const Products = () => {
     const fetchData = async () => {
         try {
             const { data } = await axios.get(`http://localhost:5000/product/${state}`)
-            console.log(data)
             setProducts(data)
         } catch (error) {
             console.log(error)
@@ -19,9 +18,9 @@ const Products = () => {
     useEffect(() => {
         fetchData()
     }, [])
-    console.log(products)
+
     return (
-        <div className="mb-12 lg:h-screen">
+        <div className="mt-10 lg:h-screen">
             <div className="grid container mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     products.map((product) => {

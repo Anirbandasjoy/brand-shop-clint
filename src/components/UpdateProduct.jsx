@@ -35,11 +35,9 @@ const UpdateProduct = () => {
             toast.error(error.message)
 
         }
-
-
     }
     return (
-        <div className="mt-5">
+        <div className="py-5">
             <div className="w-4/6 mx-auto  text-purple-500 font-semibold">
 
             </div>

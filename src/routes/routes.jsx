@@ -7,6 +7,10 @@ import UpdateProduct from "../components/UpdateProduct";
 import ProductDetails from "../components/ProductDetails";
 import Cart from "../components/Cart";
 import axios from "axios";
+import Login from "../pages/auth/Login";
+import Register from "../pages/auth/Register";
+
+
 
 
 export const router = createBrowserRouter([
@@ -39,6 +43,14 @@ export const router = createBrowserRouter([
                 element: <Cart />,
                 loader: () => axios.get("http://localhost:5000/order")
             },
+            {
+                path: "/login",
+                element: <Login />
+            },
+            {
+                path: "/register",
+                element: <Register />
+            }
 
         ]
     }
