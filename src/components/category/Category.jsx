@@ -15,7 +15,7 @@ const Category = () => {
     const [categoryData, setCategoryData] = useState([])
 
     const fetchData = async () => {
-        const { data } = await axios.get("http://localhost:5000/category")
+        const { data } = await axios.get("https://bran-shop-server.vercel.app/category")
         setCategoryData(data)
     }
     useEffect(() => {

@@ -23,7 +23,7 @@ const Products = () => {
     const { state } = useLocation();
     const fetchData = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:5000/product/${state.name}`)
+            const { data } = await axios.get(`https://bran-shop-server.vercel.app/product/${state.name}`)
             setProducts(data)
         } catch (error) {
             console.log(error)

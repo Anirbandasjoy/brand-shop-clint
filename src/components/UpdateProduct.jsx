@@ -26,7 +26,7 @@ const UpdateProduct = () => {
         console.log(product)
 
         try {
-            const { data } = await axios.put(`http://localhost:5000/product/${state._id}`, product)
+            const { data } = await axios.put(`https://bran-shop-server.vercel.app/product/${state._id}`, product)
             console.log(data)
             if (data.modifiedCount > 0) {
                 toast.success("Product Updated Successfully")

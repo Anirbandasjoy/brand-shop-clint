@@ -23,7 +23,7 @@ const AddProduct = () => {
         console.log(product)
 
         try {
-            const { data } = await axios.post("http://localhost:5000/product", product)
+            const { data } = await axios.post("https://bran-shop-server.vercel.app/product", product)
             if (data.insertedId) {
                 toast.success("Product Added Successfully")
             }

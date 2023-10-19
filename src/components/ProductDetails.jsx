@@ -13,7 +13,7 @@ const ProductDetails = () => {
     const cardData = { name, brand, category, image, price, rating, description }
     const handleOrder = async () => {
         try {
-            const { data } = await axios.post("http://localhost:5000/order", cardData)
+            const { data } = await axios.post("https://bran-shop-server.vercel.app/order", cardData)
             if (data.insertedId) {
                 toast.success("Added Successfully")
             }

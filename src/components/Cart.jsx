@@ -13,7 +13,7 @@ const Cart = () => {
 
     const handleDelete = async (id) => {
         try {
-            const { data } = await axios.delete(`http://localhost:5000/order/${id}`)
+            const { data } = await axios.delete(`https://bran-shop-server.vercel.app/order/${id}`)
             if (data.deletedCount > 0) {
                 toast.success("Deleted Successfully")
             }

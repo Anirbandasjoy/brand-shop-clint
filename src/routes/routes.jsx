@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
             {
                 path: "/cart",
                 element: <Cart />,
-                loader: () => axios.get("http://localhost:5000/order")
+                loader: () => axios.get("https://bran-shop-server.vercel.app/order")
             },
             {
                 path: "/login",
