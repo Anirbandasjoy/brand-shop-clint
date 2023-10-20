@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/cart",
-                element: <Cart />,
+                element: <PribetRoute><Cart /></PribetRoute>,
                 loader: () => axios.get("https://bran-shop-server.vercel.app/order")
             },
             {

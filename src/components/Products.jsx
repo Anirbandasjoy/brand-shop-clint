@@ -72,7 +72,7 @@ const Products = () => {
                             <div className="px-5 pb-5 mt-4">
                                 <div>
                                     <div className="flex  gap-2 ">
-                                        <h5 className="text-2xl font-semibold tracking-tight text-gray-900 ">{product.name}</h5>
+                                        <h5 className="text-2xl font-semibold tracking-tight  ">{product.name}</h5>
                                         <h4 className="text-xs font-semibold bg-primary h-fit text-white p-0.5 px-1 rounded-sm ">{product.category}</h4>
                                     </div>
                                     <div className="badge badge-primary rounded-sm">{product.brand}</div>
