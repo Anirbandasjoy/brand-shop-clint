@@ -35,7 +35,7 @@ const UpdateProduct = () => {
             toast.error(error.message)
 
         }
-        form.reset()
+
     }
     return (
         <div className="py-5">

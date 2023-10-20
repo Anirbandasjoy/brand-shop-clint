@@ -92,7 +92,7 @@ const AddProduct = () => {
 
                     <div className="md:w-4/6 w-full px-5 md:px-0  mx-auto ">
 
-                        <button className="btn w-full hover:text-gray-900 mt-5 capitalize text-gray-700 bg-green-300">Save</button>
+                        <button className="btn w-full hover:text-gray-900 mt-5 capitalize text-gray-700 bg-green-300">Add</button>
                     </div>
                 </form>
             </div>

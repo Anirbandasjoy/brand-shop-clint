@@ -65,7 +65,7 @@ const Products = () => {
             <div className="grid px-2   lg:px-0 container mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     products.map((product) => {
-                        return <div key={product._id} className="w-full  bg-white border border-gray-200 rounded-lg shadow ">
+                        return <div key={product._id} className="w-full  dark:bg-gray-700 dark:text-white border border-gray-200 rounded-lg shadow ">
                             <div>
                                 <img className=" h-96 w-full rounded-t-lg" src={product.image} alt={product.name} />
                             </div>
@@ -87,7 +87,7 @@ const Products = () => {
                                     <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded  ml-3">{product.rating}</span>
                                 </div>
                                 <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900 ">${product.price}</span>
+                                    <span className="text-3xl font-bold">${product.price}</span>
                                     <div className="space-x-1">
                                         <Link state={product} to={`/update-product/${product._id}`} className="text-white  bg-primary rounded-sm hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-5 py-2.5 text-center ">Update</Link>
                                         <Link to={`/product-details/${product._id}`} state={product} className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center ">Details</Link>
