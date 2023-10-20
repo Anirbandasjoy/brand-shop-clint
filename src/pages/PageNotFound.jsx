@@ -8,7 +8,7 @@ const PageNotFound = () => {
             <div className="text-center">
                 <BiErrorCircle className="text-red-500 mx-auto w-16 h-16" />
 
-                <h1 className="text-2xl font-semibold text-gray-800 mb-2">
+                <h1 className="text-2xl font-semibold mb-2">
                     Page Not Found
                 </h1>
                 <Link to="/" className="text-red-400 px-3 mt-2 underline">go to home</Link>
