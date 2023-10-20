@@ -2,7 +2,7 @@
 
 ## [ Live link](https://brand-shop-610c8.web.app)
 
-Click here for the website live link: [https://evm-assignment-nine.surge.sh](https://brand-shop-610c8.web.app)
+Click here for the website live link: [https://brand-shop-610c8.web.app](https://brand-shop-610c8.web.app)
 
 - Our website has a user login registration process. And there are some private routes that users cannot see if they do not register
 
