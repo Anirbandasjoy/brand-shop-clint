@@ -3,7 +3,8 @@ import Category from "../components/category/Category"
 import CategoryData from "../components/CategoryData"
 import Contact from "../components/Contact"
 import Faq from "../components/FAQ"
-import Footer from "../components/Footer"
+
+
 
 
 const Home = () => {
@@ -14,7 +15,7 @@ const Home = () => {
             <CategoryData />
             <Faq />
             <Contact />
-            <Footer />
+
 
         </div>
     )
