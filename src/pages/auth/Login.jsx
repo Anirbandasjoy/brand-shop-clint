@@ -65,7 +65,7 @@ const Login = () => {
                 <div className='flex  justify-center px-4 md:px-0'>
                     <div className="w-full max-w-lg p-4   rounded-md  sm:p-6 md:p-8 ">
                         <form className="space-y-6 " onSubmit={formik.handleSubmit}>
-                            <h5 className="text-xl font-medium text-gray-900  text-center">Sign In </h5>
+                            <h5 className="text-xl font-medium text-center">Sign In </h5>
                             <p className='text-center text-sm text-red-600'>
                                 {
                                     setLoginError && loginError
@@ -73,7 +73,7 @@ const Login = () => {
                             </p>
 
                             <div>
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">Your email</label>
+                                <label htmlFor="email" className="block mb-2 text-sm font-medium  ">Your email</label>
                                 <input type="text" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="your email" onChange={formik.handleChange} value={formik.values.email} />
 
 
@@ -82,7 +82,7 @@ const Login = () => {
 
                             </div>
                             <div>
-                                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 ">Your password</label>
+                                <label htmlFor="password" className="block mb-2 text-sm font-medium  ">Your password</label>
                                 <div className='relative'>
                                     <input type={showPassword ? "password" : "text"} name="password" id="password" placeholder="your password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " onChange={formik.handleChange} value={formik.values.password} />
                                     <span onClick={() => setShowPassword(!showPassword)}>

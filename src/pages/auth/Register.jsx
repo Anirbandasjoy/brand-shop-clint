@@ -82,7 +82,7 @@ const Register = () => {
                 <div className='flex  justify-center  px-4 md:px-0'>
                     <div className="w-full max-w-lg  p-4  rounded-md  sm:p-6 md:p-8 ">
                         <form className="space-y-4 " onSubmit={formik.handleSubmit}>
-                            <h5 className="text-xl font-medium text-gray-900  text-center">Sign Up </h5>
+                            <h5 className="text-xl font-medium  text-center">Sign Up </h5>
                             <p className='text-center text-sm text-red-600'>
                                 {
                                     setRegisterError && registerError
