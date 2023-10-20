@@ -1,15 +1,21 @@
 
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { AiOutlineDelete } from 'react-icons/ai'
 import { useLoaderData } from "react-router-dom";
 import DataNotFound from "./DataNotFound";
+import { AuthContext } from "../context/AuthProvider";
 
 const Cart = () => {
+    const { user } = useContext(AuthContext)
     const { data } = useLoaderData();
     const [orderData, setOrderData] = useState(data);
 
+    useEffect(() => {
+        const filterCartData = orderData.filter((cart) => cart.email === user.email)
+        setOrderData(filterCartData)
+    }, [])
 
     const handleDelete = async (id) => {
         try {

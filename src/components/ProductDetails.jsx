@@ -5,12 +5,17 @@ import Rating from 'react-rating';
 import { useLocation } from 'react-router-dom'
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthProvider';
 
 const ProductDetails = () => {
+    const { user } = useContext(AuthContext)
+    const email = user.email;
     const { state } = useLocation();
-    const { name, brand, category, image, price, rating, description } = state || {}
 
-    const cardData = { name, brand, category, image, price, rating, description }
+    const { name, brand, category, image, price, rating, description, } = state || {}
+
+    const cardData = { name, brand, category, image, price, rating, description, email }
     const handleOrder = async () => {
         try {
             const { data } = await axios.post("https://bran-shop-server.vercel.app/order", cardData)
@@ -40,7 +45,7 @@ const ProductDetails = () => {
                 <div className='flex-1 space-y-8 relative overflow-auto'>
                     <div className='flex gap-3 '>
                         <h1 className='font-bold text-xl  lg:text-4xl text-gray-500'>{state.name}</h1>
-                        <span className='bg-red-300 h-fit px-2 rounded-md'>{state.category}</span>
+                        <span className='bg-red-400 text-white h-fit px-2 rounded-md'>{state.category}</span>
                     </div>
 
                     <h5 className='text-gray-400 text-xs lg:text-lg text-justify'>
